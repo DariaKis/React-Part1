@@ -5,8 +5,8 @@ import {AppRoute} from "../routing/routing";
 import Load from "./load";
 
 
-const Board=(mode)=>{
-const isMain=mode.mode===AppRoute.MAIN;
+const Board=(props)=>{
+const isMain=props.mode===AppRoute.MAIN;
     return (
         <section className="board">
             { isMain && <Sort/>}
