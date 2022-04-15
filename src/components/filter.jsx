@@ -1,8 +1,8 @@
 import React from 'react';
 import {AppRoute} from "../routing/routing";
 
-const Filter=(mode)=>{
-        const isForm=mode.mode===AppRoute.FORM;
+const Filter=(props)=>{
+        const isForm=props.mode===AppRoute.FORM;
 
         return (
                <section className="main__filter filter">
