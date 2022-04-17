@@ -1,5 +1,7 @@
 export const AppRoute = {
-    MAIN: 'main',
-    ARCHIVE: 'archive',
-    FORM: 'form',
+    MAIN: '/',
+    ARCHIVE: '/archive/:id?',
+    FORM: '/form/:id?',
+    ADD: '/form',
+    NOTFOUND:''
 };

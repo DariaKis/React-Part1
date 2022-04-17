@@ -2,16 +2,15 @@ import React from 'react';
 import Header from "../components/header";
 import Board from "../components/board";
 import Filter from "../components/filter";
-import {AppRoute} from "../routing/routing";
-import Mock from "../components/mock";
 
-const Main=()=>{
+const Main=(props)=>{
+
     return(
         <React.Fragment>
-            <Header mode={AppRoute.MAIN}/>
+            <Header mode={props.match.path}/>
             <section className="main__wrapper">
                 <Filter />
-                <Board mode={AppRoute.MAIN}/>
+                <Board mode={props.match.path}/>
                 {/*<Mock/>*/}
             </section>
 
