@@ -3,9 +3,11 @@ import {AppRoute} from "../routing/routing";
 import {Link} from "react-router-dom";
 
 
+
 const Filter=(props)=>{
 
     const isForm=props.mode;
+
 
         return (
                <section className="main__filter filter">
