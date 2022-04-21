@@ -1,8 +1,13 @@
 import React from 'react';
 import {AppRoute} from "../routing/routing";
+import {Link} from "react-router-dom";
+
+
 
 const Filter=(props)=>{
-        const isForm=props.mode===AppRoute.FORM;
+
+    const isForm=props.mode;
+
 
         return (
                <section className="main__filter filter">
@@ -54,12 +59,16 @@ const Filter=(props)=>{
                        <label htmlFor="filter__favorite" className="filter__label"
                        >Избранное <span className="filter__favorite-count count">1</span></label
                        >
+
                        {!isForm &&
-                       <button
+
+                       <Link
+                           to={AppRoute.ADD}
                            name="control"
                            className="btn-add"
-                       >Создать
-                       </button>
+                       >
+                           Создать
+                       </Link>
                        }
                </section>
            )

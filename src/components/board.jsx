@@ -6,7 +6,9 @@ import Load from "./load";
 
 
 const Board=(props)=>{
-const isMain=props.mode===AppRoute.MAIN;
+
+const isMain=props.mode;
+
     return (
         <section className="board">
             { isMain && <Sort/>}

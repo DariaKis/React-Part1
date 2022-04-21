@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from "../components/header";
 import Board from "../components/board";
-import {AppRoute} from "../routing/routing";
 
-const Archive=()=>{
+
+const Archive=(props)=>{
+
     return(
         <React.Fragment>
-            <Header mode={AppRoute.ARCHIVE}/>
+            <Header mode={props.match.path}/>
             <section className="main__wrapper">
                 <Board />
             </section>
