@@ -15,9 +15,11 @@ const Filter=observer(()=>{
     } =events;
 
 
+
     const handleFiltered=action((e)=>{
         events.filteredData = events[e.target.value]
     });
+
 
 
         return (

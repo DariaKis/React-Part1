@@ -28,4 +28,3 @@ const Board=({events})=>{
 
 export default Board;
 
-
