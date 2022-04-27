@@ -1,37 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from "./card";
 import Sort from "./sort";
 import {AppRoute} from "../routing/routing";
-import Load from "./load";
+import { useLocation } from 'react-router-dom';
 
 
-const Board=(props)=>{
+const Board=({events})=>{
+    const { pathname } = useLocation();
 
-const isMain=props.mode;
+    const [step, setStep]=useState(15);
+    const handleLoadMore=()=>{
+        events.length >= step ? setStep(step + 10): setStep(events.length)
+    };
+
 
     return (
         <section className="board">
-            { isMain && <Sort/>}
+           { pathname===AppRoute.MAIN && <Sort />}
             < div className="board__events">
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
-                < Card/>
+                {events.slice(0, step).map(event => <Card event={event} key={event._id} />)}
             </div>
-            <Load/>
+            <button className="load-more" type="button" onClick={handleLoadMore} >Загрузить еще</button>
         </section>
     );
 };
 
 
 export default Board;
+

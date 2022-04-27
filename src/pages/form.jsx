@@ -2,26 +2,26 @@ import React from "react";
 import Header from "../components/header";
 import Filter from "../components/filter";
 import Adding from "../components/adding";
-import Edit from "../components/edit";
+import { useLocation } from 'react-router-dom';
+import {events} from "../store";
 
+import {observer} from "mobx-react-lite";
 
-const Form=(props)=>{
+const Form=observer(()=>{
 
-    const {id}=props.match.params;
-    const check=()=>{
-        return id? <Edit/>: <Adding/>
-    };
+    const {getCardById}=events;
+    const { pathname } = useLocation();
 
     return(
         <React.Fragment>
-            <Header mode={props.match.path}/>
+            <Header mode={pathname}/>
             <section className="main__wrapper">
-                <Filter mode={props.match.path}/>
-                {check()}
+                <Filter mode={pathname}/>
+                <Adding event={getCardById} />
             </section>
         </React.Fragment>
-    )
-};
+    );
+});
 
 
 export default Form;
